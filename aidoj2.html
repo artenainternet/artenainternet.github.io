@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JODI-inspired Page</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: "Courier New", monospace;
+      font-size: 36px;
+      margin: 0;
+      overflow: hidden;
+    }
+    
+    .glitch {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      animation: glitch-effect 2s infinite;
+    }
+    
+    @keyframes glitch-effect {
+      0% {
+        transform: translate(0);
+      }
+      25% {
+        transform: translate(2px, -2px) rotate(2deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(-2px, 2px) rotate(-2deg);
+        opacity: 1;
+      }
+      75% {
+        transform: translate(2px, 2px) rotate(2deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translate(0) rotate(0deg);
+      }
+    }
+    
+    .characters {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    
+    .characters span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+      animation: randomize-characters 1s infinite;
+    }
+    
+    @keyframes randomize-characters {
+      0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translate(-50%, -50%) rotate(180deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.8;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glitch"></div>
+  <div class="characters">
+    <span>ĒēĔĕĖė</span>
+    <span>ĘęĚěĜĝĞğĠġĢģĤĥĦħ</span>
+    <span>ĨĩĪīĬĭĮįİıĲĳĴĵĶķĸ</span>
+    <span>ĹĺĻļĽľĿŀŁłŃńŅņŇň</span>
+    <span>ŉŊŋŌōŎŏŐőŒœŔŕŖŗ</span>
+    <span>ŘřŚśŜŝŞşŠšŢţŤťŦŧ</span>
+  </div>
+  
+  <script>
+    // Add any JavaScript code or interactions here
+  </script>
+</body>
+</html>
