@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Art - Alexei Shulgin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .form-art {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        input[type="range"] {
+            margin: 10px;
+        }
+        .canvas {
+            width: 300px;
+            height: 300px;
+            border: 2px solid #ccc;
+            margin: 20px auto;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+        .shape {
+            position: absolute;
+            background-color: rgba(0, 150, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Form Art</h1>
+    <h2>Alexei Shulgin</h2>
+</header>
+
+<div class="form-art">
+    <label for="size">Tamanho da Forma:</label>
+    <input type="range" id="size" min="10" max="100" value="50">
+    
+    <label for="count">Número de Formas:</label>
+    <input type="range" id="count" min="1" max="10" value="5">
+    
+    <button id="generate">Gerar Formas</button>
+</div>
+
+<div class="canvas" id="canvas"></div>
+
+<script>
+    document.getElementById('generate').addEventListener('click', function() {
+        const canvas = document.getElementById('canvas');
+        canvas.innerHTML = ''; // Limpa o canvas
+
+        const size = document.getElementById('size').value;
+        const count = document.getElementById('count').value;
+
+        for (let i = 0; i < count; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'shape';
+            shape.style.width = shape.style.height = size + 'px';
+            shape.style.top = Math.random() * (canvas.clientHeight - size) + 'px';
+            shape.style.left = Math.random() * (canvas.clientWidth - size) + 'px';
+            canvas.appendChild(shape);
+        }
+    });
+</script>
+
+<footer>
+    <p>&copy; 2024 Arte Digital</p>
+</footer>
+
+</body>
+</html>
