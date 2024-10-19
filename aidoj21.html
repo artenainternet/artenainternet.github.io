@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Página Caótica</title>
+  <style>
+    body {
+      background-color: black;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .element {
+      position: absolute;
+      animation: move 5s infinite linear;
+    }
+
+    @keyframes move {
+      0% { left: 0; top: 0; }
+      25% { left: 100%; top: 0; }
+      50% { left: 100%; top: 100%; }
+      75% { left: 0; top: 100%; }
+      100% { left: 0; top: 0; }
+    }
+
+    .text {
+      position: absolute;
+      color: white;
+      font-size: 20px;
+      font-family: Arial, sans-serif;
+      animation: rotate 5s infinite linear;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .image {
+      position: absolute;
+      animation: distort 5s infinite linear;
+    }
+
+    @keyframes distort {
+      0% { transform: scaleX(1) scaleY(1); }
+      50% { transform: scaleX(2) scaleY(0.5); }
+      100% { transform: scaleX(1) scaleY(1); }
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function createElements() {
+      const numElements = 50; // Altere o número de elementos aqui
+
+      for (let i = 0; i < numElements; i++) {
+        const element = document.createElement('div');
+        element.className = 'element';
+        element.style.left = `${Math.random() * 90}%`;
+        element.style.top = `${Math.random() * 90}%`;
+        document.body.appendChild(element);
+      }
+
+      const texts = ['&^$#', '12345', '!!!', '??', '(*&^%'];
+      for (let i = 0; i < numElements; i++) {
+        const text = document.createElement('div');
+        text.className = 'text';
+        text.innerText = texts[Math.floor(Math.random() * texts.length)];
+        text.style.left = `${Math.random() * 90}%`;
+        text.style.top = `${Math.random() * 90}%`;
+        document.body.appendChild(text);
+      }
+
+      const images = ['image1.jpg', 'image2.jpg', 'image3.jpg']; // Substitua pelos nomes das suas imagens
+      for (let i = 0; i < numElements; i++) {
+        const image = document.createElement('img');
+        image.className = 'image';
+        image.src = images[Math.floor(Math.random() * images.length)];
+        image.style.left = `${Math.random() * 90}%`;
+        image.style.top = `${Math.random() * 90}%`;
+        document.body.appendChild(image);
+      }
+    }
+
+    createElements();
+  </script>
+</body>
+</html>
